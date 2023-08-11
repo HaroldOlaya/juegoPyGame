@@ -11,13 +11,9 @@ blue=(0,0,255)
 screen = pygame.display.set_mode((800, 500))
 # controlar los FPS
 clock =pygame.time.Clock()
-#coordenadas del cuadrado
-cord_x = 400
-cord_y = 200
+# eliminar la visivilidad del mouse
+pygame.mouse.set_visible(0)
 
-#Velocidad de movimiento
-speed_x=3
-speed_y=3
 # bucle para que se mantenga la ventana abierta
 while True:
     for event in pygame.event.get():
@@ -25,28 +21,14 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    #---Logica del juego
-    if (cord_x >780 or cord_x<0):
-        speed_x*=-1
-    if (cord_y >480 or cord_y<0):
-        speed_y*=-1
-    # cambiar la posicion del objeto
-    cord_x+=speed_x
-    cord_y+=speed_y
-
-    #--- Fin de la logica
-    #color a mi pantalla
+    mouse_post=pygame.mouse.get_pos()
+    print(mouse_post)
+    x=mouse_post[0]
+    y=mouse_post[1]
     screen.fill(white)
-    #-- zona de dibujo
 
-    # valores en x,y y luego el tamaño
-    pygame.draw.rect(screen,black,(cord_x,cord_y,20,20))
+    pygame.draw.rect(screen,red,(x,y,100,100))
 
-
-    ##-- finalizacion de la zona de dibujo
-    #actualizar pantalla
     pygame.display.flip()
-    clock.tick(30)
-    #fin del programa
 
 
