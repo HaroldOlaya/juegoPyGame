@@ -47,5 +47,6 @@ while True:
     #actualizar pantalla
     pygame.display.flip()
     clock.tick(30)
+    #fin del programa
 
 
